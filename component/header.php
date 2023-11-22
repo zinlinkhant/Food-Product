@@ -11,5 +11,36 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+<nav class="border border-black p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="font-semibold text-xl">Yum-yum 😋</div>
+        <div class="space-x-6">
+            <a href="#"
+                class="font-semibold text-lg hover:text-yellow-300 hover:tracking-widest transition-all">Home</a>
+            <a href="#"
+                class="font-semibold text-lg hover:text-yellow-300 hover:tracking-widest transition-all">About</a>
+            <a href="#"
+                class="font-semibold text-lg hover:text-yellow-300 hover:tracking-widest transition-all">Services</a>
+            <a href="#"
+                class="font-semibold text-lg hover:text-yellow-300 hover:tracking-widest transition-all">Contact</a>
+        </div>
+        <div>
+            <input type="text" id="search" class=" border border-black mr-2 pl-3" placeholder="search">
+            <i class="cursor-pointer search-btn fa-solid fa-magnifying-glass text-2xl mr-2"></i>
+            <i class="cursor-pointer fa-user fa-solid text-2xl mr-2"></i>
+            <i class="cursor-pointer fas fa-shopping-cart text-2xl mr-2"></i>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $('#search').hide();
+        $('.search-btn').click(
+            function() {
+                $('#search').toggle(300)
+            }
+        )
+    });
+    </script>
+</nav>
 
 </html>
