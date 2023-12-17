@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start()    ?>
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +26,9 @@
         <div>
             <input type="text" id="search" class=" border border-black mr-2 pl-3" placeholder="search">
             <i class="cursor-pointer search-btn fa-solid fa-magnifying-glass text-2xl mr-2"></i>
-            <i class="cursor-pointer user-btn fa-user fa-solid text-2xl mr-2"></i>
+            <i class="cursor-pointer user-btn fa-user fa-solid text-2xl mr-2"><?php if (isset($_SESSION['user'])) {
+                                                                                    echo $_SESSION['user'];
+                                                                                } ?></i>
             <i class="cursor-pointer fas fa-shopping-cart text-2xl mr-2"></i>
         </div>
     </div>
@@ -38,6 +42,7 @@
             )
         });
     </script>
+
 </nav>
 
 </html>

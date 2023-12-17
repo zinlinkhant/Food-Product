@@ -4,12 +4,26 @@ include "../db/db.php"
 ?>
 <div class="w-full relative pt-10">
     <div class="user-box absolute top-5 right-24 w-fit h-fit bg-blue-50 border border-black p-5 hidden">
-        <h3 class="text-center mb-3 font-semibold text-lg">User</h3>
+        <h3 class="text-center mb-3 font-semibold text-lg"><?php if (isset($_SESSION['user'])) : ?>
+            <?= $_SESSION['user']; ?>
+            <?php else :
+            ?>
+            user
+            <?php endif ?>
+        </h3>
         <div class="flex justify-center gap-5">
             <a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  items-center">Profile</a>
-            <a href="" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4  items-center">Logout</a>
+            <a href="./user_logout.php"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4  items-center">Logout</a>
         </div>
-        <p class="text-center"><a href="#" class="text-yellow-800 underline">Login</a> or <a href="#" class="text-blue-800 underline">register</a> </p>
+        <?php
+        if (isset($_SESSION['user'])) : ?>
+        <?php else :
+        ?>
+        <p class="text-center"><a href="./user_login.php" class="text-yellow-800 underline">Login</a> or <a
+                href="./user_register.php" class="text-blue-800 underline">register</a> </p>
+        <?php endif ?>
+
     </div>
     <div class="flex flex-wrap shadow-lg w-fit mx-auto p-10">
         <div class="flex flex-cols justify-center items-center flex-1 mr-20">
@@ -47,17 +61,18 @@ include "../db/db.php"
 </div>
 <h1 class="text-center text-4xl my-10 tracking-wide py-5 underline underline-offset-8 font-semibold">LATEST DISHES
 </h1>
+
 <div class="dishes flex justify-center mb-20">
     <a href="#" class=" bg-yellow-300 px-5 py-2 hover:tracking-widest hover:px-6 transition-all">See Menus</a>
 </div>
 <?php
 include "../component/footer.php"; ?>
 <script>
-    $(document).ready(function() {
-        $('.user-btn').click(
-            function() {
-                $('.user-box').toggleClass('hidden')
-            }
-        )
-    });
+$(document).ready(function() {
+    $('.user-btn').click(
+        function() {
+            $('.user-box').toggleClass('hidden')
+        }
+    )
+});
 </script>
