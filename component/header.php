@@ -24,7 +24,9 @@ session_start()    ?>
             <a href="../project/contact.php" class="font-semibold text-lg hover:text-yellow-300 hover:tracking-widest transition-all">Contact</a>
         </div>
         <div>
-            <input type="text" id="search" class=" border border-black mr-2 pl-3" placeholder="search">
+            <form action="index.php" method="post" id="search" class="inline">
+                <input type="text" name="search" class=" border border-black mr-2 pl-3" placeholder="search">
+            </form>
             <i class="cursor-pointer search-btn fa-solid fa-magnifying-glass text-2xl mr-2"></i>
             <i class="cursor-pointer user-btn fa-user fa-solid text-2xl mr-2"><?php if (isset($_SESSION['user'])) {
                                                                                     echo $_SESSION['user'];

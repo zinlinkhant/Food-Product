@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     if ($res) {
         $check = $password === $res['password'];
         if ($check) {
-            $_SESSION['user'] = $name;
+            $_SESSION['user'] = $res['name'];
             header("Location:index.php");
         } else {
             $error = "The password is not correct";
